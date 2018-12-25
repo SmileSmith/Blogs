@@ -1,0 +1,38 @@
+{
+  "name": "babelconfig",
+  "version": "1.0.0",
+  "description": "babelconfig demo",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmileSmith/Daily.git"
+  },
+  "keywords": [
+    "babel",
+    "transform-runtime",
+    "commonjs"
+  ],
+  "author": "smile",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "6.26.3",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-stage-2": "6.24.1",
+    "webpack": "3.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/SmileSmith/Daily/issues"
+  },
+  "homepage": "https://github.com/SmileSmith/Daily#readme"
+}
