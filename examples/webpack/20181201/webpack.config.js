@@ -39,6 +39,58 @@ module.exports = {
             }
         ]
     },
+    // solution for modules:false && babel-plugin-transform-runtime
+
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /CommonJSModule\.js$/,
+    //             exclude: /node_modules/,
+    //             use: [
+    //                 {
+    //                     loader: "babel-loader",
+    //                     options: {
+    //                         presets: [
+    //                             [
+    //                                 "env",
+    //                                 {
+    //                                     modules: "commonjs"
+    //                                 }
+    //                             ],
+    //                             "stage-2",
+    //                         ],
+    //                         plugins: ["transform-runtime"],
+    //                         cacheDirectory: true,
+    //                         sourceType: "script"
+    //                     }
+    //                 }
+    //             ],
+    //         },
+    //         {
+    //             test: /(ESModule|index)\.js$/,
+    //             exclude: /node_modules/,
+    //             use: [
+    //                 {
+    //                     loader: "babel-loader",
+    //                     options: {
+    //                         presets: [
+    //                             [
+    //                                 "env",
+    //                                 {
+    //                                     modules: false
+    //                                 }
+    //                             ],
+    //                             "stage-2",
+    //                         ],
+    //                         plugins: ["transform-runtime"],
+    //                         cacheDirectory: true,
+    //                         sourceType: "module"
+    //                     },
+    //                 }
+    //             ],
+    //         }
+    //     ]
+    // },
     plugins: [
         // new UglifyJsPlugin({sourceMap:true, compress: {warnings: false}})
     ],
