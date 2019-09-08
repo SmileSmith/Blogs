@@ -1,9 +1,9 @@
 const use = 'use export in es';
-const nouse = 'nouse';
+const unuse = 'unuse';
 const noimport = 'noimport'
 
 export {
     use,
-    nouse,
+    unuse,
     noimport,
 }

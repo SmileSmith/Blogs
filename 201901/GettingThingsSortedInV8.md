@@ -155,11 +155,11 @@ V8在实际排序之前有两个预处理步骤。
 
 首先，如果要排序的对象在原型链上有孔和元素，会将它们从原型链复制到对象本身。这样在后续所有步骤中，我们都不需要再关注原型链。目前，V8只会对非标准的JSArrays进行这样的处理，而其它引擎对于标准的JSArrays也会进行这样的复制处理。
 
-![图1：从原型链中复制](./images/v8_1.png)
+![图1：从原型链中复制](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_1.png)
 
 第二个预处理步骤是去孔（hole）。V8引擎会将排序范围中的所有元素都移动到对象的开头。之后移动 undefined。这在某种程度上其实是规范所要求的，因为规范要求引擎始终将undefined排序到最后。这样nbbbb，undefined永远都不会作为的参数去调用用户提供的比较函数。在第二个预处理步骤之后，排序算法只需要考虑 非undefined的，这可以减少实际排序的元素的数量。
 
-![图2：移除孔并将undefined移动到最后](./images/v8_2.png)
+![图2：移除孔并将undefined移动到最后](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_2.png)
 
 ## 历史
 
@@ -205,7 +205,7 @@ CSA的缺点是它确实可以被认为是汇编语言。流程控制使用明�
 
 ***译注：这里的大于指长度大于***
 
-![图3：A 和 B 合并前后的栈](./images/v8_3.png)
+![图3：A 和 B 合并前后的栈](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_3.png)
 
 在上图的例子中，因为| A |> | B |，所以B被合并到了它前后两个runs（A、C）中较小的一个。请注意，Timsort仅合并连续的run，这是维持算法稳定性所必需的，否则大小相等元素会在run中转移。此外，第一个原则确保了run的长度，最慢也会以斐波那契（Fibonacci）数列增长，这样当我们知道数组的最大边界时，runs栈大小的上下界也可以确定了。
 
@@ -258,7 +258,7 @@ builtin Load<ElementsAccessor : type>(
 
 ## 排序状态
 
-![图4：排序状态列表](./images/v8_4.png)
+![图4：排序状态列表](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_4.png)
 
 上图显示了“排序状态”。它是一个FixedArray，展示了排序时涉及到的所有内容。每次调用Array＃sort时，都会分配这种排序状态。期中04到07是上面讨论的构成快速路径的一组函数指针。
 
@@ -279,11 +279,11 @@ builtin Load<ElementsAccessor : type>(
 
 请注意，在这些情况下，JIT编译器会做很多工作，因为排序过程几乎就是我们（引擎）所处理的。虽然这样允许我们在编译器内联JavaScript版本中的比较函数，但在Torque中也会有内置函数到JavaScript的额外调用开销。不过，我们新的Timsort几乎在所有情况下都表现得更好。
 
-![图5：随机数/用户提供比较函数，微基础测试](./images/v8_5.png)
+![图5：随机数/用户提供比较函数，微基础测试](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_5.png)
 
 下一个图表显示了：在处理已完全排序的数组，或者具有已单向排序的子序列的数组时，Timsort对性能的影响。下图中采用Quicksort作为基线，展示了Timsort的加速比（在“DownDown”的情况下高达17倍，这个场景中数组由两个反向排序的子序列组成）。可以看出，除了在随机数据的情况下，Timsort在其它所有情况下都表现得更好，即使我们排序的对象是`PACKED_SMI_ELEMENTS`（Quicksort在上图的微基准测试中对这种对象排序时，性能胜过了Timsort）。
 
-![图6：预排序/无孔小整数数组/用户提供比较函数，微基础测试](./images/v8_6.png)
+![图6：预排序/无孔小整数数组/用户提供比较函数，微基础测试](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_6.png)
 
 ## Web 工具基准测试
 
@@ -291,7 +291,7 @@ builtin Load<ElementsAccessor : type>(
 
 chai的基准测试中将三分之一的时间用于一个比较函数中（字符串长度计算）。基准测试用的是chai自身的测试套件。由于数据的原因，Timsort在这种情况下需要更多的比较，这对整体的运行有着很大的影响，因为大部分时间都花在了特定的比较函数中。
 
-![图7：Web工具的基准测试](./images/v8_7.png)
+![图7：Web工具的基准测试](https://raw.githubusercontent.com/SmileSmith/Blogs/master/201901/images/v8_7.png)
 
 ## 内存影响
 

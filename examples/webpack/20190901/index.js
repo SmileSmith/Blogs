@@ -1,5 +1,5 @@
-import { use, unuse, } from './es';
-import * as CommonJSModule from './cjs';
+import { use, unuseFunc, } from './es.js';
+import * as CommonJSModule from './cjs.js';
 // const CommonJSModule = require('./CommonJSModule'); // also Good
 
 // import CommonJSModule from './CommonJSModule'; // Bad，new babel dosen't export default
