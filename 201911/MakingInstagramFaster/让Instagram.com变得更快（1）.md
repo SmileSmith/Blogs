@@ -111,3 +111,21 @@ Feed 页是[instagram.com](instagram.com)的一个重要门面，它由 1 个包
 ## 请继续关注第二章
 
 请继续关注第二章：尽早呈现和渐进式 HTML（以及 为什么不必在浏览器资源推送中使用 HTTP/2）。如果您想了解更多有关这项工作的信息，或者有兴趣加入我们的工程团队之一，请访问我们的[公司页面](https://www.facebook.com/careers/jobs/?q=instagram)，关注我们[on Facebook](https://www.facebook.com/instagramengineering/)或者[on Twitter](https://twitter.com/instagrameng).
+
+## 译注
+
+这里再补充一些扩展阅读:
+
+### link标签的preload
+
+这个特性的兼容性其实比较一般，特别是在iPhone中，IOS11之后才支持preload。当然这种属于渐进式的优化，低版本也无影响。
+
+[通过rel="preload"进行内容预加载](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content)
+
+### 空闲调用函数
+
+就是上面说到的在浏览器空间时才执行回调的实现，注册IDLE优先级的回调。
+
+[requestIdleCallback](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback)
+
+这个函数的兼容性就更差啦，IOS中全军覆没，因此实际使用时需要polyfill
