@@ -2,6 +2,8 @@
 
 ## 2019年
 
+11月 [[译] 让 Instagram.com 变得更快: 第一章](./201911/MakingInstagramFaster/让Instagram.com变得更快（1）.md)
+
 11月 [[译] 使用JavaScript生成器函数来降低内存使用](./201911/使用JavaScript生成器函数来降低内存使用.md)
 
 8月 [TreeShaking打怪升级之路](./201908/TreeShaking打怪升级之路.md)
