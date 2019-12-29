@@ -8,4 +8,4 @@
 
 在IOS环境下，即使发生了页面跳转，script的请求被aborted，script的onerror事件还是会执行
 
-复现代码见[jsonp问题复现](./../../examples/dom/20181202)
+复现代码见[jsonp问题复现](./../../../examples/dom/20181202)

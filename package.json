@@ -1,0 +1,34 @@
+{
+  "name": "blogs",
+  "version": "1.0.0",
+  "description": "working experience record or something intersting",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "@vuepress/plugin-medium-zoom": "^1.2.0",
+    "vuepress": "^1.2.0"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmileSmith/Daily.git"
+  },
+  "keywords": [
+    "vuepress",
+    "blog"
+  ],
+  "author": "SmileSmith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SmileSmith/Daily/issues"
+  },
+  "homepage": "https://github.com/SmileSmith/Daily#readme"
+}
