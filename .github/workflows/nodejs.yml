@@ -1,0 +1,36 @@
+name: DEPLOY GITHUB PAGE
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: npm install, build
+      run: |
+        npm ci
+        npm run docs:build
+      env:
+        CI: true
+    - name: deploy
+      run: |
+        cd docs/.vuepress/dist
+
+        git init
+        git config --local user.email "longde_chen@163.com"
+        git config --local user.name "SmileSmith"
+        git add -A
+        git commit -m 'deploy' 
+        git push -f https://SmileSmith:$github_token@github.com/SmileSmith.github.io.git master
+      env: # environment variable
+        github_token: ${{ secrets.token_github }}
