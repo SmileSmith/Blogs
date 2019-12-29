@@ -31,6 +31,6 @@ jobs:
         git config --local user.name "SmileSmith"
         git add -A
         git commit -m 'deploy' 
-        git push -f https://SmileSmith:$github_token@github.com/SmileSmith.github.io.git master
+        git push -f https://SmileSmith:$github_token@github.com/SmileSmith/SmileSmith.github.io.git master
       env: # environment variable
         github_token: ${{ secrets.token_github }}
