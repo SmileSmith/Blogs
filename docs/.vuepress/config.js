@@ -16,15 +16,18 @@ module.exports = {
         '@vuepress/back-to-top',
     ],
     themeConfig: {
+        logo: '/assets/images/logo.png',
         // 最后更新时间
         lastUpdated: '最后更新',
         // 顺滑滚动
         smoothScroll: true,
         // GitHub仓库名称
         repo: 'SmileSmith/Blogs',
-        // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
-        repoLabel: '在Github上',
-        // 编辑链接，默认是 false, 设置为 true 来启用
+        // 自定义仓库链接文字。
+        repoLabel: 'Github',
+        // 假如文档不是放在仓库的根目录下：
+        docsDir: 'docs',
+        // 设置为 true 来启用
         editLinks: true,
         // 默认为 "Edit this page"
         editLinkText: '帮助改善此页面！',
