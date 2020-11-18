@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试 WEB COMPONENT</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>测试 web component 基础API</h1>
+    <template id="jingxi">
+        <style>
+            span {
+                color: blue;
+            }
+        </style>
+        <script>
+            console.log('template script');
+        </script>
+        <div class="jingxi">
+            <span>Template span</span>
+        </div>
+    </template>
+    <template id="slot">
+        <style>
+            .container {
+                border: 1px solid red;
+            }
+        </style>
+        <div class="container">
+            <slot name="content"> I am a default slot </slot>
+        </div>
+    </template>
+    <slot-element></slot-element>
+    <slot-element>
+        <div slot="content">custom slot</div>
+    </slot-element>
+    <slot-element>
+        <div>custom slot without slot attribute is not used</div>
+    </slot-element>
+    <script type="module" src="./index.js"></script>
+    <template id="after">
+        <div></div>
+    </template>
+</body>
+</html>
